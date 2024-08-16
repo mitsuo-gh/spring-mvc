@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Inquiry;
+import com.example.demo.model.Invoice;
 import com.example.demo.model.User;
 
 @Controller
 public class HomeController {
 	@GetMapping("/")
-	private String index(@ModelAttribute Inquiry inquiry) {
+	private String index(@ModelAttribute Invoice invoice) {
 		return "index";
 	}
 	
 	@PostMapping("/")
-	public String confirm(@Validated @ModelAttribute Inquiry inquiry, BindingResult result) {
+	public String confirm(@Validated @ModelAttribute Invoice invoice, BindingResult result) {
 		if (result.hasErrors()) {
 			return "index";
 		}
